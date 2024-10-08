@@ -4,6 +4,7 @@ import os
 def logoSenai():
     os.system("cls || clear")
     print("=== SENAI === ")
+
 # Função para classificar o IMC
 def classificar_imc(imc):
     if imc < 18.5:
@@ -18,6 +19,7 @@ def classificar_imc(imc):
         return "Obesidade grau II"
     else:
         return "Obesidade grau III (mórbida)"
+
 #função pedir dados
 def pedir_dados():
        
@@ -27,6 +29,15 @@ def pedir_dados():
     
 
     return idade, altura, peso
+
+#adicionar dados as listas
+def adicionar():
+    idade, altura, peso = pedir_dados()
+    nomes.append(nome)
+    sobrenomes.append(sobrenome)
+    idades.append(idade)
+    alturas.append(altura)
+    pesos.append(peso)
 
 # Definindo listas vazias para armazenar os dados dos usuários
 nomes = []
@@ -47,20 +58,13 @@ while True:
     sobrenome = input("Digite o sobrenome do usuário: ")
 
     # Adicionando os dados às listas
-    idade, altura, peso = pedir_dados()
-    nomes.append(nome)
-    sobrenomes.append(sobrenome)
-    idades.append(idade)
-    alturas.append(altura)
-    pesos.append(peso)
-
-
+    adicionar()
 
 # Exibindo os dados armazenados
 logoSenai()
 print("\nDados dos usuários:")
 for i in range(len(nomes)):
-    print(f"Usuário {i+1}:")
+    print(f"\nUsuário {i+1}:")
     print("Nome:", nomes[i], sobrenomes[i])
     print("Idade:", idades[i])
     print("Altura:", alturas[i], "metros")
